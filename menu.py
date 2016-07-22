@@ -10,12 +10,8 @@ class Menu(object):
         if self._user_has_account():                        # _ antes de un metodo no significa nada sintacticamente pero es una convencion para los metodos privados
             print("Welcome back {}".format(self.user))
         else:
-            #self._prompt_user_for_account  # No me esta andando la llamada al metodo asi que puse todo aca a ver si anda
-            title = input("Enter blog title: ")
-            description = input("Enter blog description: ")
-            blog = Blog(self.user, title, description)
-            blog.save_to_mongo()
-            self.user_blog = blog
+            self._prompt_user_for_account()
+
 
 
 
@@ -28,7 +24,6 @@ class Menu(object):
             return False
 
     def _prompt_user_for_account(self):
-        print('inside a prompt user for account')
         title = input("Enter blog title: ")
         description = input("Enter blog description: ")
         blog = Blog(self.user, title, description)
